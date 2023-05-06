@@ -11,8 +11,36 @@ function Header({ title }) {
   return <h1>{title ? title : 'Default title'}</h1>;
 }
 
-export default function HomePage({ data }) {
+interface User {
+    avatar: string;
+    email: number;
+    first_name: string;
+    last_name: string;
+    id: number | string;
+}
+
+interface Data {
+  page: number;
+  per_page: number;
+  support: {
+    text: string;
+    url: string;
+  },
+  total: number;
+  total_pages: number;
+  data: User[]
+}
+
+interface HomePageProps {
+  responseData: Data
+}
+
+export default function HomePage({responseData}: HomePageProps) {
+  let data: Data
+  data = responseData
   const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+  
+
 
   const [likes, setLikes] = useState(0);
 
@@ -67,12 +95,12 @@ export default function HomePage({ data }) {
 
 export async function getStaticProps() {
   const response = await fetch('https://reqres.in/api/users?page=2')
-  const data = await response.json()
+  const responseData = await response.json()
   // const data = await prova.data
   
   return {
     props: {
-      data,
+      responseData,
     },
   }
 }
