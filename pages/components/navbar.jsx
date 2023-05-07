@@ -8,7 +8,8 @@ export default function NavBar() {
   let src = "https://connect.facebook.net/en_US/sdk.js"
 
   return (
-    <div className="navbar">
+    <div className={NavbarStyle.navbar}>
+
       <Script
         src={src}
         strategy="lazyOnload"
@@ -16,12 +17,18 @@ export default function NavBar() {
           console.log(`script ${src} loaded correctly, window.FB has been populated`)
         }
       />
-      <ul className={NavbarStyle.navbar}>
+
+      <div className={NavbarStyle.siteNameDiv}>
+        MySite.com
+      </div>
+
+      <ul className={NavbarStyle.navbarAttributes}>
         <li><Link href="/">Home</Link></li> 
         <li><Link href="/login">Login</Link></li>
-        <li>CV</li>
-        <li>Articles</li>
+        <li><Link href="/cv">CV</Link></li>
+        <li><Link href="/articles">Articles</Link></li>
       </ul>
+
     </div>
   )
 }
