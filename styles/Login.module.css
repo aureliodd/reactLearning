@@ -1,0 +1,18 @@
+.loginPage {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginPage form {
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+}
+
+.loginPage input {
+  border-radius: 2px;
+  height: 2rem;
+  margin: 5px;
+}
