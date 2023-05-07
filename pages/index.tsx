@@ -1,5 +1,5 @@
 // index.html
-import React, { useState } from 'react';
+import { useState } from 'react';
 import NavBar from './components/navbar';
 import Image from 'next/image'
 import Head from 'next/head'
@@ -54,7 +54,6 @@ export default function HomePage({responseData}: HomePageProps) {
         <title>Home</title>
         <meta property="" content="" key="" />
       </Head>
-      
         <NavBar />
         <Image
           src="/images/link.png"
